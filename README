@@ -1,0 +1,42 @@
+Financia is an opensource software product for the financial accounting and managerial accounting. 
+
+Features :
+========
+
+1. Multi level account head hierarchy
+
+2. Multi costcenter support
+
+3. User defined voucher types
+
+4. Multi currency support
+
+5. Multi language support
+
+6. Double Entry Book keeping
+
+7. Financial accounting reports such as ledgers, day book, trial balance, profit & loss account and balance sheet with drill-down facilities
+
+8. Various graphical time-line reports 
+
+9. Integrated Budgetting support
+
+10. Integrated tax management System
+
+11. Role based user level security
+
+12. Sophisticated data backup and recovery of the sytem
+
+
+Technologies
+==========
+
+1. PHP 5
+
+2. MySQL
+
+3. Zend Framework 1.11.4
+
+4. JQuery
+
+
