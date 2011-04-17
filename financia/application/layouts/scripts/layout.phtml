@@ -1,0 +1,19 @@
+<?php
+
+
+        $this->headLink()->appendStylesheet($this->baseUrl() . "/jquery-ui-1.8.10.custom/css/smoothness/jquery-ui-1.8.10.custom.css");
+        $this->headLink()->appendStylesheet($this->baseUrl() . "/jqGrid-3.8.2/css/ui.jqgrid.css");
+
+        $this->headScript()->prependFile($this->baseUrl() . "/jqGrid-3.8.2/js/jquery.jqGrid.min.js");
+        $this->headScript()->prependFile($this->baseUrl() . "/jqGrid-3.8.2/js/i18n/grid.locale-en.js");
+        $this->headScript()->prependFile($this->baseUrl() . "/jquery-ui-1.8.10.custom/js/jquery-ui-1.8.10.custom.min.js");
+        $this->headScript()->prependFile($this->baseUrl() . "/jquery-ui-1.8.10.custom/js/jquery-1.4.4.min.js");
+
+
+
+        echo $this->headLink();
+        echo $this->headScript();
+
+        echo $this->layout()->content;
+
+?>
