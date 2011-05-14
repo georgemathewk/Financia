@@ -40,7 +40,7 @@ $(document).ready(function() {
 			autowidth	: true,
 			multiselect	: true,
 			rowList		: [10,20,30],
-			rowNum		: 10,
+			rowNum		: 15,
 			viewrecords	: true
 			
 			
