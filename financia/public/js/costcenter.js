@@ -3,7 +3,7 @@
 $(document).ready(function() {
 	$('#grid').jqGrid(
 		{
-			caption  : "Costcenters List",
+			caption  : "CostCenters List",
 			url		 : "costcenter/getall?format=xml",
 			colNames : [ "ID","Code","Name","Remarks"],
 			pager	 : "#pager",
