@@ -3,13 +3,13 @@
 $(document).ready(function() {
 	$('#grid').jqGrid(
 		{
-			caption  : "Costcenters List",
+			caption  : "CostCenters List",
 			url		 : "costcenter/getall?format=xml",
 			colNames : [ "ID","Code","Name","Remarks"],
 			pager	 : "#pager",
 			editurl	 : "costcenter/edit",
 			sortname : "code",
-			sortorder: "asc",
+			sortorder: "desc",
 			colModel : [ 
 			             {
 			            	 name	:"id",
@@ -40,7 +40,7 @@ $(document).ready(function() {
 			autowidth	: true,
 			multiselect	: true,
 			rowList		: [10,20,30],
-			rowNum		: 10,
+			rowNum		: 15,
 			viewrecords	: true
 			
 			
