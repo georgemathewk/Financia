@@ -9,7 +9,7 @@ $(document).ready(function() {
 			pager	 : "#pager",
 			editurl	 : "costcenter/edit",
 			sortname : "code",
-			sortorder: "asc",
+			sortorder: "desc",
 			colModel : [ 
 			             {
 			            	 name	:"id",
