@@ -3,7 +3,14 @@
 
         $this->headLink()->appendStylesheet($this->baseUrl() . "/jquery-ui-1.8.10.custom/css/smoothness/jquery-ui-1.8.10.custom.css");
         $this->headLink()->appendStylesheet($this->baseUrl() . "/jqGrid-3.8.2/css/ui.jqgrid.css");
-
+        
+		
+        $this->headLink()->appendStylesheet($this->baseUrl() . "/jdMenu-1.4.1/jquery.jdMenu.css");
+		$this->headScript()->prependFile($this->baseUrl() . "/jdMenu-1.4.1/jquery.bgiframe.js");
+        $this->headScript()->prependFile($this->baseUrl() . "/jdMenu-1.4.1/jquery.dimensions.js");
+        $this->headScript()->prependFile($this->baseUrl() . "/jdMenu-1.4.1/jquery.jdMenu.js");
+        $this->headScript()->prependFile($this->baseUrl() . "/jdMenu-1.4.1/jquery.positionBy.js");
+        
         $this->headScript()->prependFile($this->baseUrl() . "/jqGrid-3.8.2/js/jquery.jqGrid.min.js");
         $this->headScript()->prependFile($this->baseUrl() . "/jqGrid-3.8.2/js/i18n/grid.locale-en.js");
         $this->headScript()->prependFile($this->baseUrl() . "/jquery-ui-1.8.10.custom/js/jquery-ui-1.8.10.custom.min.js");
@@ -13,7 +20,24 @@
 
         echo $this->headLink();
         echo $this->headScript();
+?>
+        
+        
+        <div style="border: 1px solid blue; ">
+		<ul class="jd_menu">
+			<li><a href=<?php echo $this->baseUrl();?>"/index/index" >Home</a></li>
+			<li class="accessible"><a href="#" class="accessible">Masters &raquo;</a>
 
+				<ul>
+					<li><a href=<?php echo $this->baseUrl();?>"/fas/costcenter" >Costcenter</a></li>									
+				</ul>
+			</li>			
+		</ul>		
+	</div>
+        
+        
+<?php
+		echo "<br />";
+		echo "<br />";
         echo $this->layout()->content;
-
 ?>
