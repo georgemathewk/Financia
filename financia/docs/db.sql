@@ -9,3 +9,13 @@ create table costcenter (
 	remarks		text		
 
 )engine=innodb;
+
+
+create table financialperiod (
+	id		int		auto_increment	primary key,
+	code	varchar(100)	unique,
+	name	varchar(100),
+	fdate	date,
+	tdate	date,
+	remarks	text
+	)engine=innodb;
