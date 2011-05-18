@@ -14,7 +14,7 @@ $(document).ready(function() {
 			             {
 			            	 name	:"id",
 			            	 index	:"id",
-			            	 hidden	: false
+			            	 hidden	: true
 			             },
 			             {
 			            	 name				: "code",
