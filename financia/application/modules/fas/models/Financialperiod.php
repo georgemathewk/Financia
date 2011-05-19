@@ -51,6 +51,20 @@ class Fas_Model_Financialperiod
 		$fp->insert($data);
 		
 	}
+	
+	
+	public function edit(){
+		$fp = new Fas_Model_DbTable_Financialperiod();
+		$data  = array(
+				"code"=>$this->code,
+				"name"=>$this->name,
+				"remarks"=>$this->remarks,
+				"fdate"=>$this->fdate,
+				"tdate"=>$this->tdate
+		);
+		$fp->update($data," id = " . $this->id);
+		
+	}
 
 }
 
