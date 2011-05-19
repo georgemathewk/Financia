@@ -37,6 +37,20 @@ class Fas_Model_Financialperiod
 		$xml	.= "</rows>";
 		return $xml;
 	}
+	
+	public function add(){
+		$fp = new Fas_Model_DbTable_Financialperiod();
+		$data  = array(
+				"code"=>$this->code,
+				"name"=>$this->name,
+				"remarks"=>$this->remarks,
+				"fdate"=>$this->fdate,
+				"tdate"=>$this->tdate
+		);
+		
+		$fp->insert($data);
+		
+	}
 
 }
 

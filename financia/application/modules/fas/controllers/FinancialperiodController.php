@@ -23,8 +23,18 @@ class Fas_FinancialperiodController extends Zend_Controller_Action
         $this->view->financialperiods = $financialperiods;
     }
 
+    public function editAction()
+    {
+        // action body
+        if(isset($_POST['oper'])){
+        	if($_POST['oper']=='add'){
+        		$fp = new Fas_Model_Financialperiod(null,$_POST['code'],$_POST['name'],$_POST['fdate'],$_POST['tdate'],$_POST['remarks']);
+        		$fp->add();
+        	}
+        }
+    }
+
 
 }
-
 
 
