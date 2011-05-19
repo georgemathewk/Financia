@@ -1,6 +1,7 @@
 $(document).ready(function(){
 		$('#grid').jqGrid({
 			url	: 'financialperiod/getall?format=xml',
+			editurl : 'financialperiod/edit',
 			caption:"Financial Period List",
 			colNames : [ "ID" , "Code","Name","From Date", "To Date", "Remarks"],
 			pager : '#pager',
@@ -13,23 +14,28 @@ $(document).ready(function(){
 			            },
 			            {
 			            	name : "code",
-			            	index : "code"
+			            	index : "code",
+			            	editable:true,
 			            },
 			            {
 			            	name : "name",
-			            	index : "name"
+			            	index : "name",
+			            	editable : true
 			            },
 			            {
 			            	name : "fdate",
-			            	index : "fdate"
+			            	index : "fdate",
+			            	editable : true
 			            },
 			            {
 			            	name : "tdate",
-			            	index : "tdate"
+			            	index : "tdate",
+			            	editable : true
 			            },
 			            {
 			            	name : "remarks",
-			            	index : "remarks"
+			            	index : "remarks",
+			            	editable : true
 			            }
 			      ]
 		});
