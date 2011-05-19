@@ -30,15 +30,21 @@
             <controllerFile controllerName="Accounthead">
               <actionMethod actionName="index"/>
             </controllerFile>
+            <controllerFile controllerName="Financialperiod">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="getall"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory>
             <dbTableDirectory>
               <dbTableFile dbTableName="Costcenter"/>
+              <dbTableFile dbTableName="Financialperiod"/>
             </dbTableDirectory>
             <modelFile modelName="Costcenter"/>
             <modelFile modelName="Accounthead"/>
+            <modelFile modelName="Financialperid"/>
           </modelsDirectory>
           <viewsDirectory>
             <viewScriptsDirectory>
@@ -56,6 +62,12 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Costcenter">
                 <viewScriptFile forActionName="edit"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Financialperiod">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Financialperiod">
+                <viewScriptFile forActionName="getall"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
@@ -120,6 +132,10 @@
               </testApplicationControllerFile>
               <testApplicationControllerFile forControllerName="Accounthead">
                 <testApplicationActionMethod forActionName="index"/>
+              </testApplicationControllerFile>
+              <testApplicationControllerFile forControllerName="Financialperiod">
+                <testApplicationActionMethod forActionName="index"/>
+                <testApplicationActionMethod forActionName="getall"/>
               </testApplicationControllerFile>
             </testApplicationControllerDirectory>
           </testApplicationModuleDirectory>
