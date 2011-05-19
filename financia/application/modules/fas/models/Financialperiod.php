@@ -28,7 +28,9 @@ class Fas_Model_Financialperiod
 			$xml	.= "<row>";
 			$xml	.= "<cell>".$row->id."</cell>";
 			$xml	.= "<cell>".$row->code."</cell>";
+			$xml	.= "<cell>".$row->name."</cell>";
 			$xml	.= "<cell>".$row->fdate."</cell>";
+			$xml	.= "<cell>".$row->tdate."</cell>";
 			$xml	.= "<cell>".$row->remarks."</cell>";
 			$xml	.= "</row>";	
 		}
