@@ -18,7 +18,7 @@ class Fas_Model_Financialperiod
 		$this->remarks	= $remarks;
 	}
 	
-	public function getall(){
+	public static function getall(){
 		$financialperiod = new Fas_Model_DbTable_Financialperiod();
 		$rowset = $financialperiod->fetchAll();
 		$xml	= "<?xml version='1.0' encoding='utf-8' ?>";
