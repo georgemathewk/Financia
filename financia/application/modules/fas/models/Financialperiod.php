@@ -18,14 +18,23 @@ class Fas_Model_Financialperiod
 		$this->remarks	= $remarks;
 	}
 	
-	public static function getall(){
+	public static function getall($page,$rows,$sidx,$sord,$searchField=null,$searchOper=null,$searchString=null){
 		$financialperiod = new Fas_Model_DbTable_Financialperiod();
 		$rowset = $financialperiod->fetchAll();
+		
+		$total_rows = count($rowset);
+		$limit	= $rows;
+		$total_pages = floor( $total_rows/$rows ) + 1;
+		
+		
 		$xml	= "<?xml version='1.0' encoding='utf-8' ?>";
 		$xml	.= "<rows>";
+		$xml	.= "<page>".$page."</page>";
+		$xml	.= "<total>".$total_pages."</total>";
+		$xml	.= "<records>".$total_rows."</records>";	
 			
 		foreach($rowset as $row){
-			$xml	.= "<row>";
+			$xml	.= "<row id='".$row->id."'>";
 			$xml	.= "<cell>".$row->id."</cell>";
 			$xml	.= "<cell>".$row->code."</cell>";
 			$xml	.= "<cell>".$row->name."</cell>";

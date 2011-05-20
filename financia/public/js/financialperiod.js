@@ -7,6 +7,9 @@ $(document).ready(function(){
 			pager : '#pager',
 			autowidth:true,
 			multiselect:true,
+			rowList : [ 10,20,30],
+			viewrecords : true,
+			rowNum : 10,
 			colModel : [
 			            {
 			            	name  : "id",

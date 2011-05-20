@@ -19,7 +19,7 @@ class Fas_FinancialperiodController extends Zend_Controller_Action
     public function getallAction()
     {
         // action body
-        $financialperiods = Fas_Model_Financialperiod::getall();
+        $financialperiods = Fas_Model_Financialperiod::getall($_GET['page'],$_GET['rows'],$_GET['sidx'],$_GET['sord']);
         $this->view->financialperiods = $financialperiods;
     }
 
