@@ -13,32 +13,38 @@ $(document).ready(function(){
 			colModel : [
 			            {
 			            	name  : "id",
-			            	index : "id"
+			            	index : "id",
+			            	hidden : true
 			            },
 			            {
 			            	name : "code",
 			            	index : "code",
 			            	editable:true,
+			            	searchoptions : { sopt : ['eq'] }
 			            },
 			            {
 			            	name : "name",
 			            	index : "name",
-			            	editable : true
+			            	editable : true,
+			            	searchoptions : { sopt : ['eq'] }
 			            },
 			            {
 			            	name : "fdate",
 			            	index : "fdate",
-			            	editable : true
+			            	editable : true,
+			            	searchoptions : { sopt : ['eq'] }
 			            },
 			            {
 			            	name : "tdate",
 			            	index : "tdate",
-			            	editable : true
+			            	editable : true,
+			            	searchoptions : { sopt : ['eq'] }
 			            },
 			            {
 			            	name : "remarks",
 			            	index : "remarks",
-			            	editable : true
+			            	editable : true,
+			            	searchoptions : { sopt : ['eq'] }
 			            }
 			      ]
 		});

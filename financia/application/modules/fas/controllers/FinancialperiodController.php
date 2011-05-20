@@ -19,7 +19,20 @@ class Fas_FinancialperiodController extends Zend_Controller_Action
     public function getallAction()
     {
         // action body
-        $financialperiods = Fas_Model_Financialperiod::getall($_GET['page'],$_GET['rows'],$_GET['sidx'],$_GET['sord']);
+        
+    	if(isset($_GET['_search'])){
+    		if($_GET['_search']=='true'){
+    			$searchField = $_GET['searchField'];
+    			$searchOper = $_GET['searchOper'];
+    			$searchString = $_GET['searchString'];
+    		}else {
+    			$searchField = "";
+    			$searchOper = "" ;
+    			$searchString = "";
+    		}
+    	}
+    	
+        $financialperiods = Fas_Model_Financialperiod::getall($_GET['page'],$_GET['rows'],$_GET['sidx'],$_GET['sord'],$searchField,$searchOper,$searchString);
         $this->view->financialperiods = $financialperiods;
     }
 

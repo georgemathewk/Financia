@@ -25,6 +25,10 @@ class Fas_Model_Financialperiod
 		$total_rows = count($rowset);
 		$limit	= $rows;
 		$total_pages = floor( $total_rows/$rows ) + 1;
+		$offset = ($page-1)*$limit;
+		
+				
+		
 		
 		
 		$xml	= "<?xml version='1.0' encoding='utf-8' ?>";
@@ -32,15 +36,41 @@ class Fas_Model_Financialperiod
 		$xml	.= "<page>".$page."</page>";
 		$xml	.= "<total>".$total_pages."</total>";
 		$xml	.= "<records>".$total_rows."</records>";	
-			
+		
+				
+		switch($searchOper){
+			case "eq" : 
+				$oper = "=";
+				break;
+			default : 
+				$oper = "";
+		}		
+		
+		$select = $financialperiod->select();
+		$select->from('financialperiod',array('id','code','name','fdate','tdate','remarks'));
+		if($searchField!=""){
+			$where = $searchField.$oper."'$searchString'";
+			$select->where($where);
+		}
+		
+		if($sidx!=""){
+			$select->order($sidx . " " . $sord);
+		}
+		
+		$select->limit($limit,$offset);
+				
+		$db = $financialperiod->getDefaultAdapter();
+		$stmt = $db->query($select);
+		$rowset = $stmt->fetchAll();
+				
 		foreach($rowset as $row){
-			$xml	.= "<row id='".$row->id."'>";
-			$xml	.= "<cell>".$row->id."</cell>";
-			$xml	.= "<cell>".$row->code."</cell>";
-			$xml	.= "<cell>".$row->name."</cell>";
-			$xml	.= "<cell>".$row->fdate."</cell>";
-			$xml	.= "<cell>".$row->tdate."</cell>";
-			$xml	.= "<cell>".$row->remarks."</cell>";
+			$xml	.= "<row id='".$row['id']."'>";
+			$xml	.= "<cell>".$row['id']."</cell>";
+			$xml	.= "<cell>".$row['code']."</cell>";
+			$xml	.= "<cell>".$row['name']."</cell>";
+			$xml	.= "<cell>".$row['fdate']."</cell>";
+			$xml	.= "<cell>".$row['tdate']."</cell>";
+			$xml	.= "<cell>".$row['remarks']."</cell>";
 			$xml	.= "</row>";	
 		}
 		$xml	.= "</rows>";
