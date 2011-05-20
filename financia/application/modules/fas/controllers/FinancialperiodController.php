@@ -33,6 +33,8 @@ class Fas_FinancialperiodController extends Zend_Controller_Action
         	}else if($_POST['oper']=='edit'){
         		$fp = new Fas_Model_Financialperiod($_POST['id'],$_POST['code'],$_POST['name'],$_POST['fdate'],$_POST['tdate'],$_POST['remarks']);
         		$fp->edit();
+        	}else if ($_POST['oper']=='del'){
+        		Fas_Model_Financialperiod::delete($_POST['id']);
         	}
         }
     }

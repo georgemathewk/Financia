@@ -65,6 +65,13 @@ class Fas_Model_Financialperiod
 		$fp->update($data," id = " . $this->id);
 		
 	}
+	
+	public static function delete($ids){
+		$fp = new Fas_Model_DbTable_Financialperiod();
+		$fp->delete("id in ( ". $ids . " )");
+		
+	}
+	
 
 }
 
