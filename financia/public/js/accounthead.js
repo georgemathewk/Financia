@@ -22,8 +22,7 @@ $(document).ready(
 					            {
 					            	name:"code",
 					            	index:"Code",
-					            	editable : true
-					            		
+					            	editable : true      		
 					            },
 					            {
 					            	name:"name",
@@ -33,7 +32,15 @@ $(document).ready(
 					            {
 					            	name:"parent_id",
 					            	index:"parent_id",
-					            	editable : true
+					            	editable : true,
+					            	hidden : true,
+					            	edittype:'select',
+					            	editoptions:{
+					            		dataUrl : '/fas/accounthead/parent',
+					            	},
+					            	editrules : {
+					            		edithidden : true
+					            	}
 					            },
 					            {
 					            	name:"remarks",

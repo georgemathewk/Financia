@@ -60,7 +60,7 @@ class Fas_Model_Accounthead
 			self::$xml .= "<cell>". $row['t1id']."</cell>";
 			self::$xml .= "<cell>". $row['t1code']."</cell>";
 			self::$xml .=  "<cell>". $row['t1name']."</cell>";
-			self::$xml .=  "<cell>". $row['code']."</cell>";
+			self::$xml .=  "<cell>". $row['t1parent_id']."</cell>";
 			self::$xml .=  "<cell>". $row['t1remarks']."</cell>";
 			
 			self::$xml .=  "<cell>". $level."</cell>";
@@ -117,5 +117,17 @@ class Fas_Model_Accounthead
 			self::$leafnodes[$row['id']]=$row['id'];
 		}		
 		
-	}	
+	}
+
+	public static function getParents(){
+		$accounthead = new Fas_Model_DbTable_Accounthead();
+		$rowset = $accounthead->fetchAll();
+		$select = "<select><option value=''></option>";
+		foreach($rowset as $row){
+			$select .= "<option value='".$row->id."'>".$row->code."</option>";
+		}
+		$select .= "</select>";
+		return $select;		
+	}
+		
 }

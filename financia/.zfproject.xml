@@ -29,6 +29,9 @@
             </controllerFile>
             <controllerFile controllerName="Accounthead">
               <actionMethod actionName="index"/>
+              <actionMethod actionName="getall"/>
+              <actionMethod actionName="edit"/>
+              <actionMethod actionName="parent"/>
             </controllerFile>
             <controllerFile controllerName="Financialperiod">
               <actionMethod actionName="index"/>
@@ -41,6 +44,7 @@
             <dbTableDirectory>
               <dbTableFile dbTableName="Costcenter"/>
               <dbTableFile dbTableName="Financialperiod"/>
+              <dbTableFile dbTableName="Accounthead"/>
             </dbTableDirectory>
             <modelFile modelName="Costcenter"/>
             <modelFile modelName="Accounthead"/>
@@ -68,6 +72,15 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Financialperiod">
                 <viewScriptFile forActionName="getall"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Accounthead">
+                <viewScriptFile forActionName="getall"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Accounthead">
+                <viewScriptFile forActionName="edit"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Accounthead">
+                <viewScriptFile forActionName="parent"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
@@ -132,6 +145,9 @@
               </testApplicationControllerFile>
               <testApplicationControllerFile forControllerName="Accounthead">
                 <testApplicationActionMethod forActionName="index"/>
+                <testApplicationActionMethod forActionName="getall"/>
+                <testApplicationActionMethod forActionName="edit"/>
+                <testApplicationActionMethod forActionName="parent"/>
               </testApplicationControllerFile>
               <testApplicationControllerFile forControllerName="Financialperiod">
                 <testApplicationActionMethod forActionName="index"/>

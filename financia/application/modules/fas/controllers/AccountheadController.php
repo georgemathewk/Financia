@@ -39,8 +39,18 @@ class Fas_AccountheadController extends Zend_Controller_Action
         // action body
     }
 
+    public function parentAction()
+    {
+    	$this->_helper->layout()->disableLayout();
+        // action body
+        $select = Fas_Model_Accounthead::getParents();
+        $this->view->select = $select;
+    }
+
 
 }
+
+
 
 
 
