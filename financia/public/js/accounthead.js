@@ -1,3 +1,10 @@
+
+function setParent(){
+    $parent_id = $('#grid').getGridParam("selrow");
+    if($('#action').val()=="add")
+            $('#parent_id').val($parent_id);
+}
+
 $(document).ready(
 		function () {
 			$('#grid').jqGrid({
@@ -10,7 +17,7 @@ $(document).ready(
 					height:'auto',
 					datatype:'xml',
 					mtype:'post',
-					colNames : ["ID","Code","Name","Parent Account","Remarks"],
+					colNames : ["ID","Code","Name","Parent Account","Remarks","Action"],
 					autowidth:true,
 					pager : '#pager',
 					colModel : [
@@ -37,6 +44,9 @@ $(document).ready(
 					            	edittype:'select',
 					            	editoptions:{
 					            		dataUrl : '/fas/accounthead/parent',
+					            		loadComplete : function ( data){
+					            					setTimeout('setParent()',100);
+					            			}
 					            	},
 					            	editrules : {
 					            		edithidden : true
@@ -46,7 +56,14 @@ $(document).ready(
 					            	name:"remarks",
 					            	index:"remarks",
 					            	editable : true
-					            }					            
+					            },
+					            {
+					            	name:"action",
+					            	index:"action",
+					            	editable : true,
+					            	hidden:true
+					            	
+					            }
 					        ]
 					}
 			);
@@ -59,10 +76,30 @@ $(document).ready(
 						view:true
 					},
 					{
-						width:'340'
+						width:'340',
+						recreateForm:true,
+						afterShowForm:function(){
+							$('#action').val("edit");
+						},
+						afterComplete : function(){
+							$('#grid').trigger('reloadGrid');
+						}
+					
 					},
 					{
-						width:'340'
+						width:'340',
+						recreateForm:true,
+						afterShowForm : function() {
+							$('#action').val("add");
+						},
+						afterComplete : function(){
+							$('#grid').trigger('reloadGrid');
+						}
+					},
+					{
+						afterComplete : function(){
+							$('#grid').trigger('reloadGrid');
+						}						
 					}
 			
 			);

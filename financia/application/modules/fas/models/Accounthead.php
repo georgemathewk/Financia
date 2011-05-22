@@ -56,12 +56,13 @@ class Fas_Model_Accounthead
 		//self::$xml .="<test>".$level."</test>";
 		
 		foreach($rowset as $row){
-			self::$xml .= "<row>";         
+			self::$xml .= "<row id='".$row['t1id']."'>";         
 			self::$xml .= "<cell>". $row['t1id']."</cell>";
 			self::$xml .= "<cell>". $row['t1code']."</cell>";
 			self::$xml .=  "<cell>". $row['t1name']."</cell>";
 			self::$xml .=  "<cell>". $row['t1parent_id']."</cell>";
 			self::$xml .=  "<cell>". $row['t1remarks']."</cell>";
+			self::$xml .=  "<cell></cell>";
 			
 			self::$xml .=  "<cell>". $level."</cell>";
 			if(!$row['t1parent_id']) 
@@ -79,7 +80,7 @@ class Fas_Model_Accounthead
 				$leaf  = 'false';
 			}					
 			self::$xml .= "<cell>".$leaf."</cell>";
-			self::$xml .= "<cell>false</cell>";
+			self::$xml .= "<cell>true</cell>";
 			self::$xml .= "</row>";
 			
 			self::display_node((integer)$row['t1id'],$level+1);
@@ -92,15 +93,42 @@ class Fas_Model_Accounthead
 	}
 	
 	public function add(){
+		$accounthead = new Fas_Model_DbTable_Accounthead();
+		
+		if($this->parent_id=="")
+			$this->parent_id=null;
+		
+		$data = array(
+			"code"=>$this->code,
+			"name"=>$this->name,
+			"parent_id"=>$this->parent_id,
+			"remarks"=>$this->remarks
+		);
+		
+		$accounthead->insert($data);
 		
 	}
 	
 	public function edit(){
+		$accounthead = new Fas_Model_DbTable_Accounthead();
+		
+		if($this->parent_id=="")
+			$this->parent_id=null;
+		
+		$data = array(
+			"code"=>$this->code,
+			"name"=>$this->name,
+			"parent_id"=>$this->parent_id,
+			"remarks"=>$this->remarks
+		);
+		
+		$accounthead->update($data,"id=".$this->id);
 		
 	}
 	
-	public function delete(){
-		
+	public static function delete($ids){
+		$accounthead = new Fas_Model_DbTable_Accounthead();
+		$accounthead->delete("id in (".$ids.")");		
 	}
 	
 	private static function loadLeafNodes(){

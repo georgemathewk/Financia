@@ -36,7 +36,19 @@ class Fas_AccountheadController extends Zend_Controller_Action
 
     public function editAction()
     {
+    	
+    	
         // action body
+        if($_POST['oper']=='add'){
+        	$accounthead = new Fas_Model_Accounthead(null,$_POST['code'],$_POST['name'],$_POST['parent_id'],$_POST['remarks']);
+        	$accounthead->add();
+        }else   if($_POST['oper']=='edit'){
+        	$accounthead = new Fas_Model_Accounthead($_POST['id'],$_POST['code'],$_POST['name'],$_POST['parent_id'],$_POST['remarks']);
+        	$accounthead->edit();
+        }
+    else   if($_POST['oper']=='del'){
+        	Fas_Model_Accounthead::delete($_POST['id']);
+        }
     }
 
     public function parentAction()

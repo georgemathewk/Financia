@@ -28,3 +28,7 @@ create table accounthead (
 	remarks	text,
 	foreign key (parent_id) references accounthead(id)
 	)engine=innodb;
+	
+alter table accounthead drop foreign key accounthead_ibfk_1;
+
+alter table accounthead add constraint fk1 foreign key(parent_id) references accounthead(id) on delete cascade;
