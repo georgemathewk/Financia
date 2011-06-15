@@ -21,11 +21,18 @@
         echo $this->headLink();
         echo $this->headScript();
 ?>
-        
+        <style type="text/css">
+
+	body {
+			background-image:url('<?php echo $this->baseUrl();?>/images/bgindex.gif');
+	}
+
+	
+</style>
         
         <div style="border: 1px solid blue; ">
 		<ul class="jd_menu">
-			<li><a href=<?php echo $this->baseUrl();?>"/index/index" >Home</a></li>
+			<li><a href=<?php echo $this->baseUrl();?>"/index/home" >Home</a></li>
 			<li class="accessible"><a href="#" class="accessible">Masters &raquo;</a>
 
 				<ul>

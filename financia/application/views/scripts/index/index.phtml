@@ -1,3 +1,32 @@
-<div style="text-align:center">
-Welcome to Financia, An opensource financial Accounting Software
-</div>
+<style type="text/css">
+
+	body {
+			background-image:url('<?php echo $this->baseUrl();?>/images/bgindex.gif');
+	}
+
+	table {
+		border : 1px solid blue;
+		/* border-collapse:collapse;*/
+		-moz-border-radius: 15px;
+		border-radius: 15px;
+		background-color:white;
+		
+		opacity:0.4;
+	}
+	
+
+</style>
+
+
+<br /><br /><br /><br /><br /><br /><br /><br />
+
+
+<table align="center">
+	<form action="<?php echo $this->baseUrl(); ?>/index/home" method="post"  >
+		<tr><td colspan="2"> Login Screen</td></tr>
+		<tr><td>Name</td><td><input type="text" name="name"  /></td></tr>
+		<tr><td>Password</td><td><input type="password" name="password" /></td></tr>
+		<tr><td colspan="2" align="center"><button type="submit">Login</button></td></tr>
+	
+	</form>
+</table>
