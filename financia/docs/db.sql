@@ -32,3 +32,13 @@ create table accounthead (
 alter table accounthead drop foreign key accounthead_ibfk_1;
 
 alter table accounthead add constraint fk1 foreign key(parent_id) references accounthead(id) on delete cascade;
+
+create table user (
+      id     int auto_increment primary key,
+      user   varchar(100),
+      password varchar(200),
+      remarks  text
+)engine=innodb;
+
+
+
