@@ -3,9 +3,21 @@
 class Fas_AccountheadController extends Zend_Controller_Action
 {
 
+	public function preDispatch(){
+		
+	    $defaultNamespace = new Zend_Session_Namespace('Default');        
+        if($defaultNamespace->sid!=Zend_Session::getId()){
+        	$this->_forward("index","index","");        	
+        }	
+		
+	}
+	
+	
+	
     public function init()
     {
         /* Initialize action controller here */
+      	
     	$contextSwitch = $this->_helper->getHelper('contextSwitch');
     	$contextSwitch->addActionContext('getall','xml');
     	$contextSwitch->initContext();
