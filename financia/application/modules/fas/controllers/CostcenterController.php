@@ -11,8 +11,7 @@ class Fas_CostcenterController extends Zend_Controller_Action
         	$this->_forward("index","index","");        	
         }	
 		
-	}
-	
+	}	
 	
     public function init()
     {
@@ -20,15 +19,14 @@ class Fas_CostcenterController extends Zend_Controller_Action
     	$contextSwitch = $this->_helper->getHelper('contextSwitch');
         $contextSwitch->addActionContext('getall', 'xml')
         	             ->initContext();
-        	             
-        	             
-
-    	
+  	
     }
 
     public function indexAction()
     {
         // action body
+        $this->_helper->layout()->disableLayout();
+    	
     }
 
     public function getallAction()

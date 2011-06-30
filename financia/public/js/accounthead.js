@@ -1,13 +1,13 @@
 
 function setParent(){
-    $parent_id = $('#grid').getGridParam("selrow");
+    $parent_id = $('#grid_accounthead').getGridParam("selrow");
     if($('#action').val()=="add")
             $('#parent_id').val($parent_id);
 }
 
 $(document).ready(
 		function () {
-			$('#grid').jqGrid({
+			$('#grid_accounthead').jqGrid({
 					url	: "/fas/accounthead/getall/format/xml",
 					editurl : "/fas/accounthead/edit",
 					treeGrid : true,
@@ -19,7 +19,7 @@ $(document).ready(
 					mtype:'post',
 					colNames : ["ID","Code","Name","Parent Account","Remarks","Action"],
 					autowidth:true,
-					pager : '#pager',
+					pager : '#pager_accounthead',
 					colModel : [
 					            {
 					            	name:"id",
@@ -68,7 +68,7 @@ $(document).ready(
 					}
 			);
 			
-			$('#grid').navGrid('#pager',
+			$('#grid_accounthead').navGrid('#pager_accounthead',
 					{
 						edit:true,
 						add:true,
@@ -82,7 +82,7 @@ $(document).ready(
 							$('#action').val("edit");
 						},
 						afterComplete : function(){
-							$('#grid').trigger('reloadGrid');
+							$('#grid_accounthead').trigger('reloadGrid');
 						}
 					
 					},
@@ -93,12 +93,12 @@ $(document).ready(
 							$('#action').val("add");
 						},
 						afterComplete : function(){
-							$('#grid').trigger('reloadGrid');
+							$('#grid_accounthead').trigger('reloadGrid');
 						}
 					},
 					{
 						afterComplete : function(){
-							$('#grid').trigger('reloadGrid');
+							$('#grid_accounthead').trigger('reloadGrid');
 						}						
 					}
 			

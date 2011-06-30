@@ -21,6 +21,8 @@ class IndexController extends Zend_Controller_Action
     public function homeAction()
     {
         // action body   
+        //$this->_helper->layout()->disableLayout();
+    	
        	$defaultNamespace = new Zend_Session_Namespace('Default');
         
         if($defaultNamespace->sid!=Zend_Session::getId()){
@@ -71,8 +73,16 @@ class IndexController extends Zend_Controller_Action
         // action body
     }
 
+    public function homecontentAction()
+    {
+        // action body
+        $this->_helper->layout()->disableLayout();
+    }
+
 
 }
+
+
 
 
 

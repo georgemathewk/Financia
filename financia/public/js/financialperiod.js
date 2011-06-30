@@ -1,10 +1,10 @@
 $(document).ready(function(){
-		$('#grid').jqGrid({
-			url	: 'financialperiod/getall?format=xml',
-			editurl : 'financialperiod/edit',
+		$('#grid_financialperiod').jqGrid({
+			url	: '/fas/financialperiod/getall?format=xml',
+			editurl : '/fas/financialperiod/edit',
 			caption:"Financial Period List",
 			colNames : [ "ID" , "Code","Name","From Date", "To Date", "Remarks"],
-			pager : '#pager',
+			pager : '#pager_financialperiod',
 			autowidth:true,
 			multiselect:true,
 			rowList : [ 10,20,30],
@@ -48,7 +48,7 @@ $(document).ready(function(){
 			            }
 			      ]
 		});
-		$('#grid').navGrid('#pager');
+		$('#grid_financialperiod').navGrid('#pager_financialperiod');
 	
 	}
 );

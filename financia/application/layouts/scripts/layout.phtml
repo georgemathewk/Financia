@@ -26,18 +26,21 @@
 	body {
 			background-image:url('<?php echo $this->baseUrl();?>/images/bgindex.gif');
 	}
+	
+	.tab_close:hover {
+		cursor : pointer;
+	}
 
 	
 </style>
         
         <div style="border: 1px solid blue; ">
 		<ul class="jd_menu">
-			<li><a href=<?php echo $this->baseUrl();?>"/index/home" >Home</a></li>
 			<li class="accessible"><a href="#" class="accessible">Masters &raquo;</a>
 				<ul>
-					<li><a href=<?php echo $this->baseUrl();?>"/fas/costcenter" >Costcenter</a></li>
-					<li><a href=<?php echo $this->baseUrl();?>"/fas/financialperiod" >Financial Period</a></li>
-					<li><a href=<?php echo $this->baseUrl();?>"/fas/accounthead" >AcccountHead</a></li>									
+					<li><a href="javascript:void(0)" onclick="newTab('/fas/costcenter','CostCenter')" >Costcenter</a></li>
+					<li><a href="javascript:void(0)" onclick="newTab('/fas/financialperiod','FinancialPeriod')" >Financial Period</a></li>
+					<li><a href="javascript:void(0)" onclick="newTab('/fas/accounthead','AccountHead')">AcccountHead</a></li>									
 				</ul>
 			</li>
 			<li class="accessible"><a href="#" class="accessible">Settings &raquo;</a>
@@ -48,7 +51,60 @@
 			<li><a href=<?php echo $this->baseUrl();?>"/index/logout" >Logout</a></li>		
 		</ul>		
 	</div>
+	
+	
+	<script type="text/javascript">
+		$(document).ready(function() {				
+			
+			$('#tab').tabs({
+				cache : true,
+				add : function() {
+					var no = $('#tab').tabs('length');
+					$('#tab').tabs('select',no-1);
+				}
+			}
+				
+			);
+		});
+
+		function closeTab(){
+			var selectedIndex = $('#tab').tabs('option','selected');
+			$('#tab').tabs('remove',selectedIndex);
+
+		}
+
+		function newTab(url,title){
+			var arr1 = $('#tab  ul li a').find('span');
+			var expr = title;
+			var reg  = new RegExp(expr,'ig');
+			var flag=0;
+			
+			for(i=0;i<arr1.length;i++){
+				
+				var str = new String(arr1[i].innerHTML);
+
+				var found =  str.match(reg);
+
+				if(found != null)
+					flag=1;	
+			}
+
+			// Prevents already opened page
+			if(flag==0)
+				$('#tab').tabs('add',url,title+"<a href='javascript:void(0)' onclick='closeTab()'  style='border:0px solid black;padding:0px;margin-top:12px;margin-right:10px'><img class='tab_close' src='/images/tab_close.png' /></a>");
+		}
+			
+	</script>
         
+        
+ <div id="tab">
+      <ul>
+         <li><a href=<?php echo $this->baseUrl();?>"/index/homecontent"><span>Home</span></a></li>
+         
+     </ul>
+ 
+ </div>
+ 
         
 <?php
 		echo "<br />";

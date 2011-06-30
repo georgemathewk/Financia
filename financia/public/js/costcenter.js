@@ -1,13 +1,13 @@
 
 // This function will be executed when DOM is loaded completely
 $(document).ready(function() {
-	$('#grid').jqGrid(
+	$('#grid_costcenter').jqGrid(
 		{
 			caption  : "CostCenters List",
-			url		 : "costcenter/getall?format=xml",
+			url		 : "/fas/costcenter/getall?format=xml",
 			colNames : [ "ID","Code","Name","Remarks"],
-			pager	 : "#pager",
-			editurl	 : "costcenter/edit",
+			pager	 : "#pager_costcenter",
+			editurl	 : "/fas/costcenter/edit",
 			sortname : "code",
 			sortorder: "desc",
 			colModel : [ 
@@ -49,7 +49,7 @@ $(document).ready(function() {
 	
 	
 	
-	).navGrid('#pager',			
+	).navGrid('#pager_costcenter',			
 		{
 		add:true,
 		view:true,
