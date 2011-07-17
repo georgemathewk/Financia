@@ -9,4 +9,7 @@
 4. Supplier ( fields [ code, name, supplier type(vendor, dealer,retailer ) ] )
 5. Item - Supplier linking
 6. Item Purchase
-
+7. Trial Balance
+8. Ledger Report
+9. Income/Expenditure Statement
+10. Balance Sheet
