@@ -1,8 +1,10 @@
 30/Jun/2011
+===========
 1. Change Password
 2. open each page in different tab(done:30/Jun/2011)
 3. Add a database dumpfile to the repository
 17/Jul/2011
+===========
 1. Bug: Parent Account head is not reloading, while adding new account head
 2. Item Unit Master ( done : 18/Jul/2011)
 3. Item Mater : Tree structure
@@ -14,4 +16,5 @@
 9. Income/Expenditure Statement
 10. Balance Sheet
 18/Jul/2011
+===========
 1. Need to remove all the static functions from the project
