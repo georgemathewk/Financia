@@ -4,7 +4,7 @@
 3. Add a database dumpfile to the repository
 17/Jul/2011
 1. Bug: Parent Account head is not reloading, while adding new account head
-2. Item Unit Master
+2. Item Unit Master ( done : 18/Jul/2011)
 3. Item Mater : Tree structure
 4. Supplier ( fields [ code, name, supplier type(vendor, dealer,retailer ) ] )
 5. Item - Supplier linking
@@ -13,3 +13,5 @@
 8. Ledger Report
 9. Income/Expenditure Statement
 10. Balance Sheet
+18/Jul/2011
+1. Need to remove all the static functions from the project

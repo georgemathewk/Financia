@@ -87,4 +87,10 @@ create table voucher_transaction_mode(
 )engine=innodb;
 
 
+create table itemunit(
+	id		int	auto_increment	primary key,
+	code	varchar(100) unique,
+	name	varchar(100),
+	remarks	text 
+)engine='innodb';
 
